@@ -1,14 +1,16 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import './index.css';
+import 'bootstrap/dist/css/bootstrap.rtl.min.css';
+import './custom.scss';
+import './index.css'
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-
+import { ThemeProvider } from 'react-bootstrap';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>
+<ThemeProvider dir="rtl">
+  <App />
+</ThemeProvider>
 );
 
 // If you want to start measuring performance in your app, pass a function
