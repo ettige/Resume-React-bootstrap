@@ -32,3 +32,16 @@ height: 74px;
 .modal-header .btn-close{
     margin:0 !important;
 }
+.carousel{
+    direction: ltr;
+    
+}
+.carousel-control-prev{
+    right:auto;
+}
+.carousel-control-next{
+    left:auto;
+}
+.carousel-item {
+    margin-left: 0;
+}

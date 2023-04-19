@@ -1,6 +1,7 @@
 import React from 'react'
 import ModalSign from './Custom'
 import { Container,Row,Col,Image,Card,Button } from 'react-bootstrap'
+import { CarosuelResume } from './Custom'
 const body = () => {
   return (
     <>
@@ -18,6 +19,13 @@ const body = () => {
     </Row>
     </Container>
     </section>
+    
+    <section className='py-4 d-none d-lg-block'>
+    <Container>
+    <CarosuelResume />
+    </Container>
+    </section>
+    
     
     <section className="bg-light py-3" id='Project'>
     <Container>
