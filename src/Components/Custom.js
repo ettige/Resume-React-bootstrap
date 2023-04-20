@@ -141,7 +141,7 @@ export function CarosuelResume(){
             <Group type="text" label="نام" onChange={handleSubmit} name="firstName"/>
             </Col>
             <Col md>
-            <Group type="text" label="نام خوانوادگی" onChange={handleSubmit} name="lastName"/>
+            <Group type="text" label="نام خانوادگی" onChange={handleSubmit} name="lastName"/>
             </Col>
             </Row>
             <Group as="textarea" label="توضیحات" onChange={handleSubmit} name="lastName"/>
@@ -153,7 +153,7 @@ export function CarosuelResume(){
             <Group type="text" label="نام" onChange={handleSubmit} name="firstName"/>
             </Col>
             <Col md>
-            <Group type="text" label="نام خوانوادگی" onChange={handleSubmit} name="lastName"/>
+            <Group type="text" label="نام خانوادگی" onChange={handleSubmit} name="lastName"/>
             </Col>
             </Row>
             <Group as="textarea" label="توضیحات" onChange={handleSubmit} name="lastName"/>
