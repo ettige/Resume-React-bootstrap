@@ -57,7 +57,7 @@ export function CarosuelResume(){
     {id:3,provinceId:1,name:"رشت"},
     {id:4,provinceId:1,name:"ماسوله"},
     {id:5,provinceId:2,name:"تهران"},
-    {id:6,provinceId:3,name:"کرج"}
+    {id:6,provinceId:2,name:"کرج"}
     
   ]
   const Group=(props)=>{
@@ -72,98 +72,108 @@ export function CarosuelResume(){
       );
     }
     const Select=(props)=>{
+      console.log(props.name,!!props.handle);
       return(
         <Form.Group className="mb-3" controlId={props.name}>
         <Form.Label>{props.label}</Form.Label>
         <Form.Select
         {...props}
         onChange={props.handle?props.handle:()=>{}}
+        aria-label={props.name}
         >
         {props.array.map(sel=><option key={sel.id} value={sel.id}>{sel.name}</option>)}
         </Form.Select>
         </Form.Group>
         );
       }
-      
-      export function ModalSign() {
-        const [show, setShow] = useState(false);
-        
-        const handleClose =() => setShow(false);
-        const handleShow =  () => setShow(true);
-        
-        const [data,setData]=useState({});
-        const handleSubmit=(e)=>{
-          setData({...data,[e.target.name]:e.target.value})
-          console.log(data);
-        }
-        
-        const [citeis,setCities]=useState(citiesRaw.filter(city=>city.provinceId.toString()==="1"));
+      function SelectCityProvince(props){
+        const [citeis,setCities]=useState([]);
         const onProvinceSelect=e=>{
-          setCities(citiesRaw.filter(city=>{ handleSubmit(e); return (city.provinceId.toString()===e.target.value.toString());}));
+          setCities(citiesRaw.filter(city=>{ props.handleSubmit(e); return (city.provinceId.toString()===e.target.value.toString());}));
         };
         
-        console.log("render there!!")
-        return (
+
+        return(
           <>
-          <Button variant="primary" onClick={handleShow}>
-          درخواست پروژه
-          </Button>
-          
-          <Modal show={show} onHide={handleClose}>
-          <Modal.Header closeButton>
-          <Modal.Title>اطلاعات فرستنده</Modal.Title>
-          
-          </Modal.Header>
-          <Modal.Body>
-          <Form>
-          <Tabs
-          defaultActiveKey="personal"
-          id="form-switch"
-          className="mb-3"
-          fill
-          >
-          <Tab eventKey="personal" title="شخصی">
-          <Row>
-          <Col md>
-          <Group type="text" label="نام" onChange={handleSubmit} name="firstName"/>
-          </Col>
-          <Col md>
-          <Group type="text" label="نام خوانوادگی" onChange={handleSubmit} name="lastName"/>
-          </Col>
-          </Row>
-          <Group as="textarea" label="توضیحات" onChange={handleSubmit} name="lastName"/>
-          
           <Select label="استان" name="province" array={provincesRaw} handle={onProvinceSelect} />
-          <Select label="شهر" name="city" array={citeis} handle={onProvinceSelect} />
-          </Tab>
-          <Tab eventKey="company" title="شرکت">
-          <Row>
-          <Col md>
-          <Group type="text" label="نام" onChange={handleSubmit} name="firstName"/>
-          </Col>
-          <Col md>
-          <Group type="text" label="نام خوانوادگی" onChange={handleSubmit} name="lastName"/>
-          </Col>
-          </Row>
-          <Group as="textarea" label="توضیحات" onChange={handleSubmit} name="lastName"/>
-          
-          <Select label="استان" name="province" array={provincesRaw} handle={onProvinceSelect} />
-          <Select label="شهر" name="city" array={citeis} handle={onProvinceSelect} />
-          </Tab>
-          </Tabs>
-          </Form>
-          </Modal.Body>
-          <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-          بستن
-          </Button>
-          <Button name="submit" variant="primary" onClick={handleSubmit}>
-          ثبت
-          </Button>
-          </Modal.Footer>
-          </Modal>
+          <Select label="شهر" name="city" array={citeis} />
           </>
-          );
+          )
         }
-        
-        export default ModalSign
+        export function ModalSign() {
+          const [show, setShow] = useState(false);
+          
+          const handleClose =() => setShow(false);
+          const handleShow =  () => setShow(true);
+          
+          const [data,setData]=useState({});
+          const handleSubmit=(e)=>{
+            setData({...data,[e.target.name]:e.target.value})
+            console.log(data);
+          }
+          
+
+          console.log("render there!!")
+          return (
+            <>
+            <Button variant="primary" onClick={handleShow}>
+            درخواست پروژه
+            </Button>
+            
+            <Modal show={show} onHide={handleClose}>
+            <Modal.Header closeButton>
+            <Modal.Title>اطلاعات فرستنده</Modal.Title>
+            
+            </Modal.Header>
+            <Modal.Body>
+            <Form>
+            <Tabs
+            defaultActiveKey="personal"
+            id="form-switch"
+            className="mb-3"
+            fill
+            >
+            <Tab eventKey="personal" title="شخصی">
+            <Row>
+            <Col md>
+            <Group type="text" label="نام" onChange={handleSubmit} name="firstName"/>
+            </Col>
+            <Col md>
+            <Group type="text" label="نام خوانوادگی" onChange={handleSubmit} name="lastName"/>
+            </Col>
+            </Row>
+            <Group as="textarea" label="توضیحات" onChange={handleSubmit} name="lastName"/>
+            
+            
+            </Tab>
+            <Tab eventKey="company" title="شرکت">
+            <Row>
+            <Col md>
+            <Group type="text" label="نام" onChange={handleSubmit} name="firstName"/>
+            </Col>
+            <Col md>
+            <Group type="text" label="نام خوانوادگی" onChange={handleSubmit} name="lastName"/>
+            </Col>
+            </Row>
+            <Group as="textarea" label="توضیحات" onChange={handleSubmit} name="lastName"/>
+            
+            <Select label="استان" name="province" array={provincesRaw} handle={onProvinceSelect} />
+            <Select label="شهر" name="city" array={citeis} />
+            </Tab>
+            </Tabs>
+            </Form>
+            </Modal.Body>
+            <Modal.Footer>
+            <Button variant="secondary" onClick={handleClose}>
+            بستن
+            </Button>
+            <Button name="submit" variant="primary" onClick={handleSubmit}>
+            ثبت
+            </Button>
+            </Modal.Footer>
+            </Modal>
+            </>
+            );
+          }
+          
+          export default ModalSign
