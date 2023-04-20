@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/React-BS-resume/static/css/main.de79f563.css",
-    "main.js": "/React-BS-resume/static/js/main.4c5c0f10.js",
-    "static/js/787.dc9ee2bf.chunk.js": "/React-BS-resume/static/js/787.dc9ee2bf.chunk.js",
-    "static/media/Vazirmatn-RD-SemiBold.woff2": "/React-BS-resume/static/media/Vazirmatn-RD-SemiBold.335f0b0ca04a0bf4e388.woff2",
-    "index.html": "/React-BS-resume/index.html",
-    "main.de79f563.css.map": "/React-BS-resume/static/css/main.de79f563.css.map",
-    "main.4c5c0f10.js.map": "/React-BS-resume/static/js/main.4c5c0f10.js.map",
-    "787.dc9ee2bf.chunk.js.map": "/React-BS-resume/static/js/787.dc9ee2bf.chunk.js.map"
+    "main.css": "/Resume-React-bootstrap/static/css/main.5d85124a.css",
+    "main.js": "/Resume-React-bootstrap/static/js/main.f09913e8.js",
+    "static/js/787.dc9ee2bf.chunk.js": "/Resume-React-bootstrap/static/js/787.dc9ee2bf.chunk.js",
+    "static/media/Vazirmatn-RD-SemiBold.woff2": "/Resume-React-bootstrap/static/media/Vazirmatn-RD-SemiBold.335f0b0ca04a0bf4e388.woff2",
+    "index.html": "/Resume-React-bootstrap/index.html",
+    "main.5d85124a.css.map": "/Resume-React-bootstrap/static/css/main.5d85124a.css.map",
+    "main.f09913e8.js.map": "/Resume-React-bootstrap/static/js/main.f09913e8.js.map",
+    "787.dc9ee2bf.chunk.js.map": "/Resume-React-bootstrap/static/js/787.dc9ee2bf.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.de79f563.css",
-    "static/js/main.4c5c0f10.js"
+    "static/css/main.5d85124a.css",
+    "static/js/main.f09913e8.js"
   ]
 }
