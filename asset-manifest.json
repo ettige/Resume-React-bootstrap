@@ -1,0 +1,16 @@
+{
+  "files": {
+    "main.css": "/static/css/main.f1c65e90.css",
+    "main.js": "/static/js/main.09f29f5b.js",
+    "static/js/787.dc9ee2bf.chunk.js": "/static/js/787.dc9ee2bf.chunk.js",
+    "static/media/Vazirmatn-RD-SemiBold.woff2": "/static/media/Vazirmatn-RD-SemiBold.335f0b0ca04a0bf4e388.woff2",
+    "index.html": "/index.html",
+    "main.f1c65e90.css.map": "/static/css/main.f1c65e90.css.map",
+    "main.09f29f5b.js.map": "/static/js/main.09f29f5b.js.map",
+    "787.dc9ee2bf.chunk.js.map": "/static/js/787.dc9ee2bf.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f1c65e90.css",
+    "static/js/main.09f29f5b.js"
+  ]
+}
