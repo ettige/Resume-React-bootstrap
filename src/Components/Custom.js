@@ -1,4 +1,4 @@
-import {React,useState} from "react";
+import {React,useState,useRef} from "react";
 import { Form,Button,Modal,Tabs,Tab,Carousel, Container,Row,Col } from "react-bootstrap";
 
 export function CarosuelResume(){
@@ -77,7 +77,9 @@ export function CarosuelResume(){
         <Form.Group className="mb-3" controlId={props.name}>
         <Form.Label>{props.label}</Form.Label>
         <Form.Select
-        {...props}
+        type={props.type?props.type:""}
+        as={props.as?props.as:"input"}
+        name={props.name}
         onChange={props.handle?props.handle:()=>{}}
         aria-label={props.name}
         >
@@ -89,14 +91,15 @@ export function CarosuelResume(){
       function SelectCityProvince(props){
         const [citeis,setCities]=useState([]);
         const onProvinceSelect=e=>{
-          setCities(citiesRaw.filter(city=>{ props.handleSubmit(e); return (city.provinceId.toString()===e.target.value.toString());}));
+          props.handleSubmit(e);
+          setCities(citiesRaw.filter(city=>{  return (city.provinceId.toString()===e.target.value.toString());}));
         };
         
-
+        
         return(
           <>
           <Select label="استان" name="province" array={provincesRaw} handle={onProvinceSelect} />
-          <Select label="شهر" name="city" array={citeis} />
+          <Select label="شهر" name="city" array={citeis} handle={props.handleSubmit}/>
           </>
           )
         }
@@ -106,14 +109,13 @@ export function CarosuelResume(){
           const handleClose =() => setShow(false);
           const handleShow =  () => setShow(true);
           
-          const [data,setData]=useState({});
+          let data=useRef({});
           const handleSubmit=(e)=>{
-            setData({...data,[e.target.name]:e.target.value})
+            data={...data,[e.target.name]:e.target.value};
             console.log(data);
-          }
+          };
           
-
-          console.log("render there!!")
+          console.log("modal render!!");
           return (
             <>
             <Button variant="primary" onClick={handleShow}>
@@ -143,8 +145,7 @@ export function CarosuelResume(){
             </Col>
             </Row>
             <Group as="textarea" label="توضیحات" onChange={handleSubmit} name="lastName"/>
-            
-            
+            <SelectCityProvince  handleSubmit={handleSubmit}/>
             </Tab>
             <Tab eventKey="company" title="شرکت">
             <Row>
@@ -156,9 +157,7 @@ export function CarosuelResume(){
             </Col>
             </Row>
             <Group as="textarea" label="توضیحات" onChange={handleSubmit} name="lastName"/>
-            
-            <Select label="استان" name="province" array={provincesRaw} handle={onProvinceSelect} />
-            <Select label="شهر" name="city" array={citeis} />
+            <SelectCityProvince  handleSubmit={handleSubmit}/>
             </Tab>
             </Tabs>
             </Form>
